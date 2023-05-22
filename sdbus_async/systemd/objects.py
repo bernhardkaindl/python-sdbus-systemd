@@ -22,7 +22,11 @@ class Systemd(SystemdInterfaceAsync):
 
     async def get_unit_obj(self, name: str) -> SystemdUnit:
         object_path = await self.get_unit(name)
-        return SystemdUnit(object_path)
+        return SystemdUnit(object_path, self._attached_bus)
+
+    async def load_unit_obj(self, name: str) -> SystemdUnit:
+        object_path = await self.load_unit(name)
+        return SystemdUnit(object_path, self._attached_bus)
 
 
 class SystemdUnit(SystemdUnitInterfaceAsync):
