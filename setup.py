@@ -52,9 +52,13 @@ setup(
     ],
     packages=[
         'sdbus_async.systemd',
+        'sdbus_block.systemd',
     ],
     package_data={
         'sdbus_async.systemd': [
+            'py.typed',
+        ],
+        'sdbus_block.systemd': [
             'py.typed',
         ],
     },

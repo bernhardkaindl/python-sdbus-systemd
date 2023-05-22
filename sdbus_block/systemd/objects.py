@@ -3,15 +3,16 @@ from typing import Optional
 
 from sdbus.sd_bus_internals import SdBus
 
-from .interfaces_manager_async import SystemdInterfaceAsync
+from .interfaces import SystemdInterface
 
 
-class Systemd(SystemdInterfaceAsync):
-    """Systemd object, implements :py:class:`SystemdInterfaceAsync`"""
+class Systemd(SystemdInterface):
+    """Systemd object, implements :py:class:`SystemdInterface`"""
 
     def __init__(self, bus: Optional[SdBus] = None) -> None:
         """
         :param bus: pass the system bus (or set default bus to the system bus)
         """
-        super().__init__()
-        self._connect('org.freedesktop.systemd1', '/org/freedesktop/systemd1', bus)
+        super().__init__('org.freedesktop.systemd1',
+                         '/org/freedesktop/systemd1',
+                         bus)
