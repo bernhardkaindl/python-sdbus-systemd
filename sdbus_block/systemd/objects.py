@@ -23,7 +23,11 @@ class Systemd(SystemdInterface):
 
     def get_unit_obj(self, name: str) -> SystemdUnit:
         object_path = self.get_unit(name)
-        return SystemdUnit(object_path)
+        return SystemdUnit(object_path, self._attached_bus)
+
+    def load_unit_obj(self, name: str) -> SystemdUnit:
+        object_path = self.load_unit(name)
+        return SystemdUnit(object_path, self._attached_bus)
 
 
 class SystemdUnit(SystemdUnitInterface):
