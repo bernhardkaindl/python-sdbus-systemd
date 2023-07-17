@@ -5,7 +5,7 @@ from typing import Optional
 
 from sdbus.sd_bus_internals import SdBus
 
-from .interfaces import SystemdInterfaceAsync, SystemdUnitInterfaceAsync
+from .interfaces import SystemdInterfaceAsync, SystemdServiceInterfaceAsync, SystemdUnitInterfaceAsync
 
 SYSTEMD_SERVICE_NAME = 'org.freedesktop.systemd1'
 
@@ -27,6 +27,18 @@ class Systemd(SystemdInterfaceAsync):
     async def load_unit_obj(self, name: str) -> SystemdUnit:
         object_path = await self.load_unit(name)
         return SystemdUnit(object_path, self._attached_bus)
+
+
+class SystemdService(SystemdServiceInterfaceAsync):
+    """Systemd service object, implements :py:class:`SystemdServiceInterfaceAsync`"""
+
+    def __init__(self, object_path: str, bus: Optional[SdBus] = None):
+        """
+        :param object_path: D-Bus path to systemd unit object
+        :param bus: pass the system bus (or set default bus to the system bus)
+        """
+        super().__init__()
+        self._connect(SYSTEMD_SERVICE_NAME, object_path, bus)
 
 
 class SystemdUnit(SystemdUnitInterfaceAsync):

@@ -1507,6 +1507,1876 @@ class SystemdInterface(
         raise NotImplementedError
 
 
+class SystemdServiceInterface(
+    DbusInterfaceCommon,
+    interface_name='org.freedesktop.systemd1.Service',
+):
+    @dbus_method(
+        result_signature='a(sus)',
+    )
+    def get_processes(
+        self,
+    ) -> List[Tuple[str, int, str]]:
+        raise NotImplementedError
+
+    @dbus_method(
+        input_signature='sau',
+    )
+    def attach_processes(
+        self,
+        subcgroup: str,
+        pids: List[int],
+    ) -> None:
+        raise NotImplementedError
+
+    @dbus_property(
+        property_signature='s',
+        flags=DbusPropertyConstFlag,
+    )
+    def type(self) -> str:
+        raise NotImplementedError
+
+    @dbus_property(
+        property_signature='s',
+        flags=DbusPropertyConstFlag,
+    )
+    def restart(self) -> str:
+        raise NotImplementedError
+
+    @dbus_property(
+        property_signature='s',
+        flags=DbusPropertyConstFlag,
+    )
+    def p_i_d_file(self) -> str:
+        raise NotImplementedError
+
+    @dbus_property(
+        property_signature='s',
+        flags=DbusPropertyConstFlag,
+    )
+    def notify_access(self) -> str:
+        raise NotImplementedError
+
+    @dbus_property(
+        property_signature='t',
+        flags=DbusPropertyConstFlag,
+    )
+    def restart_u_sec(self) -> int:
+        raise NotImplementedError
+
+    @dbus_property(
+        property_signature='t',
+        flags=DbusPropertyConstFlag,
+    )
+    def timeout_start_u_sec(self) -> int:
+        raise NotImplementedError
+
+    @dbus_property(
+        property_signature='t',
+        flags=DbusPropertyConstFlag,
+    )
+    def timeout_stop_u_sec(self) -> int:
+        raise NotImplementedError
+
+    @dbus_property(
+        property_signature='t',
+    )
+    def timeout_abort_u_sec(self) -> int:
+        raise NotImplementedError
+
+    @dbus_property(
+        property_signature='s',
+        flags=DbusPropertyConstFlag,
+    )
+    def timeout_start_failure_mode(self) -> str:
+        raise NotImplementedError
+
+    @dbus_property(
+        property_signature='s',
+        flags=DbusPropertyConstFlag,
+    )
+    def timeout_stop_failure_mode(self) -> str:
+        raise NotImplementedError
+
+    @dbus_property(
+        property_signature='t',
+        flags=DbusPropertyConstFlag,
+    )
+    def runtime_max_u_sec(self) -> int:
+        raise NotImplementedError
+
+    @dbus_property(
+        property_signature='t',
+    )
+    def watchdog_u_sec(self) -> int:
+        raise NotImplementedError
+
+    @dbus_property(
+        property_signature='t',
+    )
+    def watchdog_timestamp(self) -> int:
+        raise NotImplementedError
+
+    @dbus_property(
+        property_signature='t',
+    )
+    def watchdog_timestamp_monotonic(self) -> int:
+        raise NotImplementedError
+
+    @dbus_property(
+        property_signature='b',
+        flags=DbusPropertyConstFlag,
+    )
+    def root_directory_start_only(self) -> bool:
+        raise NotImplementedError
+
+    @dbus_property(
+        property_signature='b',
+        flags=DbusPropertyConstFlag,
+    )
+    def remain_after_exit(self) -> bool:
+        raise NotImplementedError
+
+    @dbus_property(
+        property_signature='b',
+        flags=DbusPropertyConstFlag,
+    )
+    def guess_main_p_i_d(self) -> bool:
+        raise NotImplementedError
+
+    @dbus_property(
+        property_signature='(aiai)',
+        flags=DbusPropertyConstFlag,
+    )
+    def restart_prevent_exit_status(self) -> Tuple[List[int], List[int]]:
+        raise NotImplementedError
+
+    @dbus_property(
+        property_signature='(aiai)',
+        flags=DbusPropertyConstFlag,
+    )
+    def restart_force_exit_status(self) -> Tuple[List[int], List[int]]:
+        raise NotImplementedError
+
+    @dbus_property(
+        property_signature='(aiai)',
+        flags=DbusPropertyConstFlag,
+    )
+    def success_exit_status(self) -> Tuple[List[int], List[int]]:
+        raise NotImplementedError
+
+    @dbus_property(
+        property_signature='u',
+    )
+    def main_p_i_d(self) -> int:
+        raise NotImplementedError
+
+    @dbus_property(
+        property_signature='u',
+    )
+    def control_p_i_d(self) -> int:
+        raise NotImplementedError
+
+    @dbus_property(
+        property_signature='s',
+        flags=DbusPropertyConstFlag,
+    )
+    def bus_name(self) -> str:
+        raise NotImplementedError
+
+    @dbus_property(
+        property_signature='u',
+        flags=DbusPropertyConstFlag,
+    )
+    def file_descriptor_store_max(self) -> int:
+        raise NotImplementedError
+
+    @dbus_property(
+        property_signature='u',
+    )
+    def n_file_descriptor_store(self) -> int:
+        raise NotImplementedError
+
+    @dbus_property(
+        property_signature='s',
+    )
+    def status_text(self) -> str:
+        raise NotImplementedError
+
+    @dbus_property(
+        property_signature='i',
+    )
+    def status_errno(self) -> int:
+        raise NotImplementedError
+
+    @dbus_property(
+        property_signature='s',
+    )
+    def result(self) -> str:
+        raise NotImplementedError
+
+    @dbus_property(
+        property_signature='s',
+    )
+    def reload_result(self) -> str:
+        raise NotImplementedError
+
+    @dbus_property(
+        property_signature='s',
+    )
+    def clean_result(self) -> str:
+        raise NotImplementedError
+
+    @dbus_property(
+        property_signature='s',
+        flags=DbusPropertyConstFlag,
+    )
+    def u_s_b_function_descriptors(self) -> str:
+        raise NotImplementedError
+
+    @dbus_property(
+        property_signature='s',
+        flags=DbusPropertyConstFlag,
+    )
+    def u_s_b_function_strings(self) -> str:
+        raise NotImplementedError
+
+    @dbus_property(
+        property_signature='u',
+    )
+    def u_i_d(self) -> int:
+        raise NotImplementedError
+
+    @dbus_property(
+        property_signature='u',
+    )
+    def g_i_d(self) -> int:
+        raise NotImplementedError
+
+    @dbus_property(
+        property_signature='u',
+    )
+    def n_restarts(self) -> int:
+        raise NotImplementedError
+
+    @dbus_property(
+        property_signature='s',
+        flags=DbusPropertyConstFlag,
+    )
+    def o_o_m_policy(self) -> str:
+        raise NotImplementedError
+
+    @dbus_property(
+        property_signature='t',
+    )
+    def exec_main_start_timestamp(self) -> int:
+        raise NotImplementedError
+
+    @dbus_property(
+        property_signature='t',
+    )
+    def exec_main_start_timestamp_monotonic(self) -> int:
+        raise NotImplementedError
+
+    @dbus_property(
+        property_signature='t',
+    )
+    def exec_main_exit_timestamp(self) -> int:
+        raise NotImplementedError
+
+    @dbus_property(
+        property_signature='t',
+    )
+    def exec_main_exit_timestamp_monotonic(self) -> int:
+        raise NotImplementedError
+
+    @dbus_property(
+        property_signature='u',
+    )
+    def exec_main_p_i_d(self) -> int:
+        raise NotImplementedError
+
+    @dbus_property(
+        property_signature='i',
+    )
+    def exec_main_code(self) -> int:
+        raise NotImplementedError
+
+    @dbus_property(
+        property_signature='i',
+    )
+    def exec_main_status(self) -> int:
+        raise NotImplementedError
+
+    @dbus_property(
+        property_signature='a(sasbttttuii)',
+        flags=DbusPropertyEmitsInvalidationFlag,
+    )
+    def exec_condition(self) -> List[Tuple[str, List[str], bool, int, int, int, int, int, int, int]]:
+        raise NotImplementedError
+
+    @dbus_property(
+        property_signature='a(sasasttttuii)',
+        flags=DbusPropertyEmitsInvalidationFlag,
+    )
+    def exec_condition_ex(self) -> List[Tuple[str, List[str], List[str], int, int, int, int, int, int, int]]:
+        raise NotImplementedError
+
+    @dbus_property(
+        property_signature='a(sasbttttuii)',
+        flags=DbusPropertyEmitsInvalidationFlag,
+    )
+    def exec_start_pre(self) -> List[Tuple[str, List[str], bool, int, int, int, int, int, int, int]]:
+        raise NotImplementedError
+
+    @dbus_property(
+        property_signature='a(sasasttttuii)',
+        flags=DbusPropertyEmitsInvalidationFlag,
+    )
+    def exec_start_pre_ex(self) -> List[Tuple[str, List[str], List[str], int, int, int, int, int, int, int]]:
+        raise NotImplementedError
+
+    @dbus_property(
+        property_signature='a(sasbttttuii)',
+        flags=DbusPropertyEmitsInvalidationFlag,
+    )
+    def exec_start(self) -> List[Tuple[str, List[str], bool, int, int, int, int, int, int, int]]:
+        raise NotImplementedError
+
+    @dbus_property(
+        property_signature='a(sasasttttuii)',
+        flags=DbusPropertyEmitsInvalidationFlag,
+    )
+    def exec_start_ex(self) -> List[Tuple[str, List[str], List[str], int, int, int, int, int, int, int]]:
+        raise NotImplementedError
+
+    @dbus_property(
+        property_signature='a(sasbttttuii)',
+        flags=DbusPropertyEmitsInvalidationFlag,
+    )
+    def exec_start_post(self) -> List[Tuple[str, List[str], bool, int, int, int, int, int, int, int]]:
+        raise NotImplementedError
+
+    @dbus_property(
+        property_signature='a(sasasttttuii)',
+        flags=DbusPropertyEmitsInvalidationFlag,
+    )
+    def exec_start_post_ex(self) -> List[Tuple[str, List[str], List[str], int, int, int, int, int, int, int]]:
+        raise NotImplementedError
+
+    @dbus_property(
+        property_signature='a(sasbttttuii)',
+        flags=DbusPropertyEmitsInvalidationFlag,
+    )
+    def exec_reload(self) -> List[Tuple[str, List[str], bool, int, int, int, int, int, int, int]]:
+        raise NotImplementedError
+
+    @dbus_property(
+        property_signature='a(sasasttttuii)',
+        flags=DbusPropertyEmitsInvalidationFlag,
+    )
+    def exec_reload_ex(self) -> List[Tuple[str, List[str], List[str], int, int, int, int, int, int, int]]:
+        raise NotImplementedError
+
+    @dbus_property(
+        property_signature='a(sasbttttuii)',
+        flags=DbusPropertyEmitsInvalidationFlag,
+    )
+    def exec_stop(self) -> List[Tuple[str, List[str], bool, int, int, int, int, int, int, int]]:
+        raise NotImplementedError
+
+    @dbus_property(
+        property_signature='a(sasasttttuii)',
+        flags=DbusPropertyEmitsInvalidationFlag,
+    )
+    def exec_stop_ex(self) -> List[Tuple[str, List[str], List[str], int, int, int, int, int, int, int]]:
+        raise NotImplementedError
+
+    @dbus_property(
+        property_signature='a(sasbttttuii)',
+        flags=DbusPropertyEmitsInvalidationFlag,
+    )
+    def exec_stop_post(self) -> List[Tuple[str, List[str], bool, int, int, int, int, int, int, int]]:
+        raise NotImplementedError
+
+    @dbus_property(
+        property_signature='a(sasasttttuii)',
+        flags=DbusPropertyEmitsInvalidationFlag,
+    )
+    def exec_stop_post_ex(self) -> List[Tuple[str, List[str], List[str], int, int, int, int, int, int, int]]:
+        raise NotImplementedError
+
+    @dbus_property(
+        property_signature='s',
+    )
+    def slice(self) -> str:
+        raise NotImplementedError
+
+    @dbus_property(
+        property_signature='s',
+    )
+    def control_group(self) -> str:
+        raise NotImplementedError
+
+    @dbus_property(
+        property_signature='t',
+    )
+    def memory_current(self) -> int:
+        raise NotImplementedError
+
+    @dbus_property(
+        property_signature='t',
+    )
+    def c_p_u_usage_n_sec(self) -> int:
+        raise NotImplementedError
+
+    @dbus_property(
+        property_signature='ay',
+    )
+    def effective_c_p_us(self) -> bytes:
+        raise NotImplementedError
+
+    @dbus_property(
+        property_signature='ay',
+    )
+    def effective_memory_nodes(self) -> bytes:
+        raise NotImplementedError
+
+    @dbus_property(
+        property_signature='t',
+    )
+    def tasks_current(self) -> int:
+        raise NotImplementedError
+
+    @dbus_property(
+        property_signature='t',
+    )
+    def i_p_ingress_bytes(self) -> int:
+        raise NotImplementedError
+
+    @dbus_property(
+        property_signature='t',
+    )
+    def i_p_ingress_packets(self) -> int:
+        raise NotImplementedError
+
+    @dbus_property(
+        property_signature='t',
+    )
+    def i_p_egress_bytes(self) -> int:
+        raise NotImplementedError
+
+    @dbus_property(
+        property_signature='t',
+    )
+    def i_p_egress_packets(self) -> int:
+        raise NotImplementedError
+
+    @dbus_property(
+        property_signature='t',
+    )
+    def i_o_read_bytes(self) -> int:
+        raise NotImplementedError
+
+    @dbus_property(
+        property_signature='t',
+    )
+    def i_o_read_operations(self) -> int:
+        raise NotImplementedError
+
+    @dbus_property(
+        property_signature='t',
+    )
+    def i_o_write_bytes(self) -> int:
+        raise NotImplementedError
+
+    @dbus_property(
+        property_signature='t',
+    )
+    def i_o_write_operations(self) -> int:
+        raise NotImplementedError
+
+    @dbus_property(
+        property_signature='b',
+    )
+    def delegate(self) -> bool:
+        raise NotImplementedError
+
+    @dbus_property(
+        property_signature='as',
+    )
+    def delegate_controllers(self) -> List[str]:
+        raise NotImplementedError
+
+    @dbus_property(
+        property_signature='b',
+    )
+    def c_p_u_accounting(self) -> bool:
+        raise NotImplementedError
+
+    @dbus_property(
+        property_signature='t',
+    )
+    def c_p_u_weight(self) -> int:
+        raise NotImplementedError
+
+    @dbus_property(
+        property_signature='t',
+    )
+    def startup_c_p_u_weight(self) -> int:
+        raise NotImplementedError
+
+    @dbus_property(
+        property_signature='t',
+    )
+    def c_p_u_shares(self) -> int:
+        raise NotImplementedError
+
+    @dbus_property(
+        property_signature='t',
+    )
+    def startup_c_p_u_shares(self) -> int:
+        raise NotImplementedError
+
+    @dbus_property(
+        property_signature='t',
+    )
+    def c_p_u_quota_per_sec_u_sec(self) -> int:
+        raise NotImplementedError
+
+    @dbus_property(
+        property_signature='t',
+    )
+    def c_p_u_quota_period_u_sec(self) -> int:
+        raise NotImplementedError
+
+    @dbus_property(
+        property_signature='ay',
+    )
+    def allowed_c_p_us(self) -> bytes:
+        raise NotImplementedError
+
+    @dbus_property(
+        property_signature='ay',
+    )
+    def allowed_memory_nodes(self) -> bytes:
+        raise NotImplementedError
+
+    @dbus_property(
+        property_signature='b',
+    )
+    def i_o_accounting(self) -> bool:
+        raise NotImplementedError
+
+    @dbus_property(
+        property_signature='t',
+    )
+    def i_o_weight(self) -> int:
+        raise NotImplementedError
+
+    @dbus_property(
+        property_signature='t',
+    )
+    def startup_i_o_weight(self) -> int:
+        raise NotImplementedError
+
+    @dbus_property(
+        property_signature='a(st)',
+    )
+    def i_o_device_weight(self) -> List[Tuple[str, int]]:
+        raise NotImplementedError
+
+    @dbus_property(
+        property_signature='a(st)',
+    )
+    def i_o_read_bandwidth_max(self) -> List[Tuple[str, int]]:
+        raise NotImplementedError
+
+    @dbus_property(
+        property_signature='a(st)',
+    )
+    def i_o_write_bandwidth_max(self) -> List[Tuple[str, int]]:
+        raise NotImplementedError
+
+    @dbus_property(
+        property_signature='a(st)',
+    )
+    def i_o_read_i_o_p_s_max(self) -> List[Tuple[str, int]]:
+        raise NotImplementedError
+
+    @dbus_property(
+        property_signature='a(st)',
+    )
+    def i_o_write_i_o_p_s_max(self) -> List[Tuple[str, int]]:
+        raise NotImplementedError
+
+    @dbus_property(
+        property_signature='a(st)',
+    )
+    def i_o_device_latency_target_u_sec(self) -> List[Tuple[str, int]]:
+        raise NotImplementedError
+
+    @dbus_property(
+        property_signature='b',
+    )
+    def block_i_o_accounting(self) -> bool:
+        raise NotImplementedError
+
+    @dbus_property(
+        property_signature='t',
+    )
+    def block_i_o_weight(self) -> int:
+        raise NotImplementedError
+
+    @dbus_property(
+        property_signature='t',
+    )
+    def startup_block_i_o_weight(self) -> int:
+        raise NotImplementedError
+
+    @dbus_property(
+        property_signature='a(st)',
+    )
+    def block_i_o_device_weight(self) -> List[Tuple[str, int]]:
+        raise NotImplementedError
+
+    @dbus_property(
+        property_signature='a(st)',
+    )
+    def block_i_o_read_bandwidth(self) -> List[Tuple[str, int]]:
+        raise NotImplementedError
+
+    @dbus_property(
+        property_signature='a(st)',
+    )
+    def block_i_o_write_bandwidth(self) -> List[Tuple[str, int]]:
+        raise NotImplementedError
+
+    @dbus_property(
+        property_signature='b',
+    )
+    def memory_accounting(self) -> bool:
+        raise NotImplementedError
+
+    @dbus_property(
+        property_signature='t',
+    )
+    def default_memory_low(self) -> int:
+        raise NotImplementedError
+
+    @dbus_property(
+        property_signature='t',
+    )
+    def default_memory_min(self) -> int:
+        raise NotImplementedError
+
+    @dbus_property(
+        property_signature='t',
+    )
+    def memory_min(self) -> int:
+        raise NotImplementedError
+
+    @dbus_property(
+        property_signature='t',
+    )
+    def memory_low(self) -> int:
+        raise NotImplementedError
+
+    @dbus_property(
+        property_signature='t',
+    )
+    def memory_high(self) -> int:
+        raise NotImplementedError
+
+    @dbus_property(
+        property_signature='t',
+    )
+    def memory_max(self) -> int:
+        raise NotImplementedError
+
+    @dbus_property(
+        property_signature='t',
+    )
+    def memory_swap_max(self) -> int:
+        raise NotImplementedError
+
+    @dbus_property(
+        property_signature='t',
+    )
+    def memory_limit(self) -> int:
+        raise NotImplementedError
+
+    @dbus_property(
+        property_signature='s',
+    )
+    def device_policy(self) -> str:
+        raise NotImplementedError
+
+    @dbus_property(
+        property_signature='a(ss)',
+    )
+    def device_allow(self) -> List[Tuple[str, str]]:
+        raise NotImplementedError
+
+    @dbus_property(
+        property_signature='b',
+    )
+    def tasks_accounting(self) -> bool:
+        raise NotImplementedError
+
+    @dbus_property(
+        property_signature='t',
+    )
+    def tasks_max(self) -> int:
+        raise NotImplementedError
+
+    @dbus_property(
+        property_signature='b',
+    )
+    def i_p_accounting(self) -> bool:
+        raise NotImplementedError
+
+    @dbus_property(
+        property_signature='a(iayu)',
+    )
+    def i_p_address_allow(self) -> List[Tuple[int, bytes, int]]:
+        raise NotImplementedError
+
+    @dbus_property(
+        property_signature='a(iayu)',
+    )
+    def i_p_address_deny(self) -> List[Tuple[int, bytes, int]]:
+        raise NotImplementedError
+
+    @dbus_property(
+        property_signature='as',
+    )
+    def i_p_ingress_filter_path(self) -> List[str]:
+        raise NotImplementedError
+
+    @dbus_property(
+        property_signature='as',
+    )
+    def i_p_egress_filter_path(self) -> List[str]:
+        raise NotImplementedError
+
+    @dbus_property(
+        property_signature='as',
+    )
+    def disable_controllers(self) -> List[str]:
+        raise NotImplementedError
+
+    @dbus_property(
+        property_signature='s',
+    )
+    def managed_o_o_m_swap(self) -> str:
+        raise NotImplementedError
+
+    @dbus_property(
+        property_signature='s',
+    )
+    def managed_o_o_m_memory_pressure(self) -> str:
+        raise NotImplementedError
+
+    @dbus_property(
+        property_signature='s',
+    )
+    def managed_o_o_m_memory_pressure_limit_percent(self) -> str:
+        raise NotImplementedError
+
+    @dbus_property(
+        property_signature='as',
+        flags=DbusPropertyConstFlag,
+    )
+    def environment(self) -> List[str]:
+        raise NotImplementedError
+
+    @dbus_property(
+        property_signature='a(sb)',
+        flags=DbusPropertyConstFlag,
+    )
+    def environment_files(self) -> List[Tuple[str, bool]]:
+        raise NotImplementedError
+
+    @dbus_property(
+        property_signature='as',
+        flags=DbusPropertyConstFlag,
+    )
+    def pass_environment(self) -> List[str]:
+        raise NotImplementedError
+
+    @dbus_property(
+        property_signature='as',
+        flags=DbusPropertyConstFlag,
+    )
+    def unset_environment(self) -> List[str]:
+        raise NotImplementedError
+
+    @dbus_property(
+        property_signature='u',
+        flags=DbusPropertyConstFlag,
+    )
+    def u_mask(self) -> int:
+        raise NotImplementedError
+
+    @dbus_property(
+        property_signature='t',
+        flags=DbusPropertyConstFlag,
+    )
+    def limit_c_p_u(self) -> int:
+        raise NotImplementedError
+
+    @dbus_property(
+        property_signature='t',
+        flags=DbusPropertyConstFlag,
+    )
+    def limit_c_p_u_soft(self) -> int:
+        raise NotImplementedError
+
+    @dbus_property(
+        property_signature='t',
+        flags=DbusPropertyConstFlag,
+    )
+    def limit_f_s_i_z_e(self) -> int:
+        raise NotImplementedError
+
+    @dbus_property(
+        property_signature='t',
+        flags=DbusPropertyConstFlag,
+    )
+    def limit_f_s_i_z_e_soft(self) -> int:
+        raise NotImplementedError
+
+    @dbus_property(
+        property_signature='t',
+        flags=DbusPropertyConstFlag,
+    )
+    def limit_d_a_t_a(self) -> int:
+        raise NotImplementedError
+
+    @dbus_property(
+        property_signature='t',
+        flags=DbusPropertyConstFlag,
+    )
+    def limit_d_a_t_a_soft(self) -> int:
+        raise NotImplementedError
+
+    @dbus_property(
+        property_signature='t',
+        flags=DbusPropertyConstFlag,
+    )
+    def limit_s_t_a_c_k(self) -> int:
+        raise NotImplementedError
+
+    @dbus_property(
+        property_signature='t',
+        flags=DbusPropertyConstFlag,
+    )
+    def limit_s_t_a_c_k_soft(self) -> int:
+        raise NotImplementedError
+
+    @dbus_property(
+        property_signature='t',
+        flags=DbusPropertyConstFlag,
+    )
+    def limit_c_o_r_e(self) -> int:
+        raise NotImplementedError
+
+    @dbus_property(
+        property_signature='t',
+        flags=DbusPropertyConstFlag,
+    )
+    def limit_c_o_r_e_soft(self) -> int:
+        raise NotImplementedError
+
+    @dbus_property(
+        property_signature='t',
+        flags=DbusPropertyConstFlag,
+    )
+    def limit_r_s_s(self) -> int:
+        raise NotImplementedError
+
+    @dbus_property(
+        property_signature='t',
+        flags=DbusPropertyConstFlag,
+    )
+    def limit_r_s_s_soft(self) -> int:
+        raise NotImplementedError
+
+    @dbus_property(
+        property_signature='t',
+        flags=DbusPropertyConstFlag,
+    )
+    def limit_n_o_f_i_l_e(self) -> int:
+        raise NotImplementedError
+
+    @dbus_property(
+        property_signature='t',
+        flags=DbusPropertyConstFlag,
+    )
+    def limit_n_o_f_i_l_e_soft(self) -> int:
+        raise NotImplementedError
+
+    @dbus_property(
+        property_signature='t',
+        flags=DbusPropertyConstFlag,
+    )
+    def limit_a_s(self) -> int:
+        raise NotImplementedError
+
+    @dbus_property(
+        property_signature='t',
+        flags=DbusPropertyConstFlag,
+    )
+    def limit_a_s_soft(self) -> int:
+        raise NotImplementedError
+
+    @dbus_property(
+        property_signature='t',
+        flags=DbusPropertyConstFlag,
+    )
+    def limit_n_p_r_o_c(self) -> int:
+        raise NotImplementedError
+
+    @dbus_property(
+        property_signature='t',
+        flags=DbusPropertyConstFlag,
+    )
+    def limit_n_p_r_o_c_soft(self) -> int:
+        raise NotImplementedError
+
+    @dbus_property(
+        property_signature='t',
+        flags=DbusPropertyConstFlag,
+    )
+    def limit_m_e_m_l_o_c_k(self) -> int:
+        raise NotImplementedError
+
+    @dbus_property(
+        property_signature='t',
+        flags=DbusPropertyConstFlag,
+    )
+    def limit_m_e_m_l_o_c_k_soft(self) -> int:
+        raise NotImplementedError
+
+    @dbus_property(
+        property_signature='t',
+        flags=DbusPropertyConstFlag,
+    )
+    def limit_l_o_c_k_s(self) -> int:
+        raise NotImplementedError
+
+    @dbus_property(
+        property_signature='t',
+        flags=DbusPropertyConstFlag,
+    )
+    def limit_l_o_c_k_s_soft(self) -> int:
+        raise NotImplementedError
+
+    @dbus_property(
+        property_signature='t',
+        flags=DbusPropertyConstFlag,
+    )
+    def limit_s_i_g_p_e_n_d_i_n_g(self) -> int:
+        raise NotImplementedError
+
+    @dbus_property(
+        property_signature='t',
+        flags=DbusPropertyConstFlag,
+    )
+    def limit_s_i_g_p_e_n_d_i_n_g_soft(self) -> int:
+        raise NotImplementedError
+
+    @dbus_property(
+        property_signature='t',
+        flags=DbusPropertyConstFlag,
+    )
+    def limit_m_s_g_q_u_e_u_e(self) -> int:
+        raise NotImplementedError
+
+    @dbus_property(
+        property_signature='t',
+        flags=DbusPropertyConstFlag,
+    )
+    def limit_m_s_g_q_u_e_u_e_soft(self) -> int:
+        raise NotImplementedError
+
+    @dbus_property(
+        property_signature='t',
+        flags=DbusPropertyConstFlag,
+    )
+    def limit_n_i_c_e(self) -> int:
+        raise NotImplementedError
+
+    @dbus_property(
+        property_signature='t',
+        flags=DbusPropertyConstFlag,
+    )
+    def limit_n_i_c_e_soft(self) -> int:
+        raise NotImplementedError
+
+    @dbus_property(
+        property_signature='t',
+        flags=DbusPropertyConstFlag,
+    )
+    def limit_r_t_p_r_i_o(self) -> int:
+        raise NotImplementedError
+
+    @dbus_property(
+        property_signature='t',
+        flags=DbusPropertyConstFlag,
+    )
+    def limit_r_t_p_r_i_o_soft(self) -> int:
+        raise NotImplementedError
+
+    @dbus_property(
+        property_signature='t',
+        flags=DbusPropertyConstFlag,
+    )
+    def limit_r_t_t_i_m_e(self) -> int:
+        raise NotImplementedError
+
+    @dbus_property(
+        property_signature='t',
+        flags=DbusPropertyConstFlag,
+    )
+    def limit_r_t_t_i_m_e_soft(self) -> int:
+        raise NotImplementedError
+
+    @dbus_property(
+        property_signature='s',
+        flags=DbusPropertyConstFlag,
+    )
+    def working_directory(self) -> str:
+        raise NotImplementedError
+
+    @dbus_property(
+        property_signature='s',
+        flags=DbusPropertyConstFlag,
+    )
+    def root_directory(self) -> str:
+        raise NotImplementedError
+
+    @dbus_property(
+        property_signature='s',
+        flags=DbusPropertyConstFlag,
+    )
+    def root_image(self) -> str:
+        raise NotImplementedError
+
+    @dbus_property(
+        property_signature='a(ss)',
+        flags=DbusPropertyConstFlag,
+    )
+    def root_image_options(self) -> List[Tuple[str, str]]:
+        raise NotImplementedError
+
+    @dbus_property(
+        property_signature='ay',
+        flags=DbusPropertyConstFlag,
+    )
+    def root_hash(self) -> bytes:
+        raise NotImplementedError
+
+    @dbus_property(
+        property_signature='s',
+        flags=DbusPropertyConstFlag,
+    )
+    def root_hash_path(self) -> str:
+        raise NotImplementedError
+
+    @dbus_property(
+        property_signature='ay',
+        flags=DbusPropertyConstFlag,
+    )
+    def root_hash_signature(self) -> bytes:
+        raise NotImplementedError
+
+    @dbus_property(
+        property_signature='s',
+        flags=DbusPropertyConstFlag,
+    )
+    def root_hash_signature_path(self) -> str:
+        raise NotImplementedError
+
+    @dbus_property(
+        property_signature='s',
+        flags=DbusPropertyConstFlag,
+    )
+    def root_verity(self) -> str:
+        raise NotImplementedError
+
+    @dbus_property(
+        property_signature='a(ssba(ss))',
+        flags=DbusPropertyConstFlag,
+    )
+    def mount_images(self) -> List[Tuple[str, str, bool, List[Tuple[str, str]]]]:
+        raise NotImplementedError
+
+    @dbus_property(
+        property_signature='i',
+        flags=DbusPropertyConstFlag,
+    )
+    def o_o_m_score_adjust(self) -> int:
+        raise NotImplementedError
+
+    @dbus_property(
+        property_signature='t',
+        flags=DbusPropertyConstFlag,
+    )
+    def coredump_filter(self) -> int:
+        raise NotImplementedError
+
+    @dbus_property(
+        property_signature='i',
+        flags=DbusPropertyConstFlag,
+    )
+    def nice(self) -> int:
+        raise NotImplementedError
+
+    @dbus_property(
+        property_signature='i',
+        flags=DbusPropertyConstFlag,
+    )
+    def i_o_scheduling_class(self) -> int:
+        raise NotImplementedError
+
+    @dbus_property(
+        property_signature='i',
+        flags=DbusPropertyConstFlag,
+    )
+    def i_o_scheduling_priority(self) -> int:
+        raise NotImplementedError
+
+    @dbus_property(
+        property_signature='i',
+        flags=DbusPropertyConstFlag,
+    )
+    def c_p_u_scheduling_policy(self) -> int:
+        raise NotImplementedError
+
+    @dbus_property(
+        property_signature='i',
+        flags=DbusPropertyConstFlag,
+    )
+    def c_p_u_scheduling_priority(self) -> int:
+        raise NotImplementedError
+
+    @dbus_property(
+        property_signature='ay',
+        flags=DbusPropertyConstFlag,
+    )
+    def c_p_u_affinity(self) -> bytes:
+        raise NotImplementedError
+
+    @dbus_property(
+        property_signature='b',
+        flags=DbusPropertyConstFlag,
+    )
+    def c_p_u_affinity_from_n_u_m_a(self) -> bool:
+        raise NotImplementedError
+
+    @dbus_property(
+        property_signature='i',
+        flags=DbusPropertyConstFlag,
+    )
+    def n_u_m_a_policy(self) -> int:
+        raise NotImplementedError
+
+    @dbus_property(
+        property_signature='ay',
+        flags=DbusPropertyConstFlag,
+    )
+    def n_u_m_a_mask(self) -> bytes:
+        raise NotImplementedError
+
+    @dbus_property(
+        property_signature='t',
+        flags=DbusPropertyConstFlag,
+    )
+    def timer_slack_n_sec(self) -> int:
+        raise NotImplementedError
+
+    @dbus_property(
+        property_signature='b',
+        flags=DbusPropertyConstFlag,
+    )
+    def c_p_u_scheduling_reset_on_fork(self) -> bool:
+        raise NotImplementedError
+
+    @dbus_property(
+        property_signature='b',
+        flags=DbusPropertyConstFlag,
+    )
+    def non_blocking(self) -> bool:
+        raise NotImplementedError
+
+    @dbus_property(
+        property_signature='s',
+        flags=DbusPropertyConstFlag,
+    )
+    def standard_input(self) -> str:
+        raise NotImplementedError
+
+    @dbus_property(
+        property_signature='s',
+        flags=DbusPropertyConstFlag,
+    )
+    def standard_input_file_descriptor_name(self) -> str:
+        raise NotImplementedError
+
+    @dbus_property(
+        property_signature='ay',
+        flags=DbusPropertyConstFlag,
+    )
+    def standard_input_data(self) -> bytes:
+        raise NotImplementedError
+
+    @dbus_property(
+        property_signature='s',
+        flags=DbusPropertyConstFlag,
+    )
+    def standard_output(self) -> str:
+        raise NotImplementedError
+
+    @dbus_property(
+        property_signature='s',
+        flags=DbusPropertyConstFlag,
+    )
+    def standard_output_file_descriptor_name(self) -> str:
+        raise NotImplementedError
+
+    @dbus_property(
+        property_signature='s',
+        flags=DbusPropertyConstFlag,
+    )
+    def standard_error(self) -> str:
+        raise NotImplementedError
+
+    @dbus_property(
+        property_signature='s',
+        flags=DbusPropertyConstFlag,
+    )
+    def standard_error_file_descriptor_name(self) -> str:
+        raise NotImplementedError
+
+    @dbus_property(
+        property_signature='s',
+        flags=DbusPropertyConstFlag,
+    )
+    def t_t_y_path(self) -> str:
+        raise NotImplementedError
+
+    @dbus_property(
+        property_signature='b',
+        flags=DbusPropertyConstFlag,
+    )
+    def t_t_y_reset(self) -> bool:
+        raise NotImplementedError
+
+    @dbus_property(
+        property_signature='b',
+        flags=DbusPropertyConstFlag,
+    )
+    def t_t_y_v_hangup(self) -> bool:
+        raise NotImplementedError
+
+    @dbus_property(
+        property_signature='b',
+        flags=DbusPropertyConstFlag,
+    )
+    def t_t_y_v_t_disallocate(self) -> bool:
+        raise NotImplementedError
+
+    @dbus_property(
+        property_signature='i',
+        flags=DbusPropertyConstFlag,
+    )
+    def syslog_priority(self) -> int:
+        raise NotImplementedError
+
+    @dbus_property(
+        property_signature='s',
+        flags=DbusPropertyConstFlag,
+    )
+    def syslog_identifier(self) -> str:
+        raise NotImplementedError
+
+    @dbus_property(
+        property_signature='b',
+        flags=DbusPropertyConstFlag,
+    )
+    def syslog_level_prefix(self) -> bool:
+        raise NotImplementedError
+
+    @dbus_property(
+        property_signature='i',
+        flags=DbusPropertyConstFlag,
+    )
+    def syslog_level(self) -> int:
+        raise NotImplementedError
+
+    @dbus_property(
+        property_signature='i',
+        flags=DbusPropertyConstFlag,
+    )
+    def syslog_facility(self) -> int:
+        raise NotImplementedError
+
+    @dbus_property(
+        property_signature='i',
+        flags=DbusPropertyConstFlag,
+    )
+    def log_level_max(self) -> int:
+        raise NotImplementedError
+
+    @dbus_property(
+        property_signature='t',
+        flags=DbusPropertyConstFlag,
+    )
+    def log_rate_limit_interval_u_sec(self) -> int:
+        raise NotImplementedError
+
+    @dbus_property(
+        property_signature='u',
+        flags=DbusPropertyConstFlag,
+    )
+    def log_rate_limit_burst(self) -> int:
+        raise NotImplementedError
+
+    @dbus_property(
+        property_signature='aay',
+        flags=DbusPropertyConstFlag,
+    )
+    def log_extra_fields(self) -> List[bytes]:
+        raise NotImplementedError
+
+    @dbus_property(
+        property_signature='s',
+        flags=DbusPropertyConstFlag,
+    )
+    def log_namespace(self) -> str:
+        raise NotImplementedError
+
+    @dbus_property(
+        property_signature='i',
+        flags=DbusPropertyConstFlag,
+    )
+    def secure_bits(self) -> int:
+        raise NotImplementedError
+
+    @dbus_property(
+        property_signature='t',
+        flags=DbusPropertyConstFlag,
+    )
+    def capability_bounding_set(self) -> int:
+        raise NotImplementedError
+
+    @dbus_property(
+        property_signature='t',
+        flags=DbusPropertyConstFlag,
+    )
+    def ambient_capabilities(self) -> int:
+        raise NotImplementedError
+
+    @dbus_property(
+        property_signature='s',
+        flags=DbusPropertyConstFlag,
+    )
+    def user(self) -> str:
+        raise NotImplementedError
+
+    @dbus_property(
+        property_signature='s',
+        flags=DbusPropertyConstFlag,
+    )
+    def group(self) -> str:
+        raise NotImplementedError
+
+    @dbus_property(
+        property_signature='b',
+        flags=DbusPropertyConstFlag,
+    )
+    def dynamic_user(self) -> bool:
+        raise NotImplementedError
+
+    @dbus_property(
+        property_signature='b',
+        flags=DbusPropertyConstFlag,
+    )
+    def remove_i_p_c(self) -> bool:
+        raise NotImplementedError
+
+    @dbus_property(
+        property_signature='a(say)',
+        flags=DbusPropertyConstFlag,
+    )
+    def set_credential(self) -> List[Tuple[str, bytes]]:
+        raise NotImplementedError
+
+    @dbus_property(
+        property_signature='a(ss)',
+        flags=DbusPropertyConstFlag,
+    )
+    def load_credential(self) -> List[Tuple[str, str]]:
+        raise NotImplementedError
+
+    @dbus_property(
+        property_signature='as',
+        flags=DbusPropertyConstFlag,
+    )
+    def supplementary_groups(self) -> List[str]:
+        raise NotImplementedError
+
+    @dbus_property(
+        property_signature='s',
+        flags=DbusPropertyConstFlag,
+    )
+    def p_a_m_name(self) -> str:
+        raise NotImplementedError
+
+    @dbus_property(
+        property_signature='as',
+        flags=DbusPropertyConstFlag,
+    )
+    def read_write_paths(self) -> List[str]:
+        raise NotImplementedError
+
+    @dbus_property(
+        property_signature='as',
+        flags=DbusPropertyConstFlag,
+    )
+    def read_only_paths(self) -> List[str]:
+        raise NotImplementedError
+
+    @dbus_property(
+        property_signature='as',
+        flags=DbusPropertyConstFlag,
+    )
+    def inaccessible_paths(self) -> List[str]:
+        raise NotImplementedError
+
+    @dbus_property(
+        property_signature='t',
+        flags=DbusPropertyConstFlag,
+    )
+    def mount_flags(self) -> int:
+        raise NotImplementedError
+
+    @dbus_property(
+        property_signature='b',
+        flags=DbusPropertyConstFlag,
+    )
+    def private_tmp(self) -> bool:
+        raise NotImplementedError
+
+    @dbus_property(
+        property_signature='b',
+        flags=DbusPropertyConstFlag,
+    )
+    def private_devices(self) -> bool:
+        raise NotImplementedError
+
+    @dbus_property(
+        property_signature='b',
+        flags=DbusPropertyConstFlag,
+    )
+    def protect_clock(self) -> bool:
+        raise NotImplementedError
+
+    @dbus_property(
+        property_signature='b',
+        flags=DbusPropertyConstFlag,
+    )
+    def protect_kernel_tunables(self) -> bool:
+        raise NotImplementedError
+
+    @dbus_property(
+        property_signature='b',
+        flags=DbusPropertyConstFlag,
+    )
+    def protect_kernel_modules(self) -> bool:
+        raise NotImplementedError
+
+    @dbus_property(
+        property_signature='b',
+        flags=DbusPropertyConstFlag,
+    )
+    def protect_kernel_logs(self) -> bool:
+        raise NotImplementedError
+
+    @dbus_property(
+        property_signature='b',
+        flags=DbusPropertyConstFlag,
+    )
+    def protect_control_groups(self) -> bool:
+        raise NotImplementedError
+
+    @dbus_property(
+        property_signature='b',
+        flags=DbusPropertyConstFlag,
+    )
+    def private_network(self) -> bool:
+        raise NotImplementedError
+
+    @dbus_property(
+        property_signature='b',
+        flags=DbusPropertyConstFlag,
+    )
+    def private_users(self) -> bool:
+        raise NotImplementedError
+
+    @dbus_property(
+        property_signature='b',
+        flags=DbusPropertyConstFlag,
+    )
+    def private_mounts(self) -> bool:
+        raise NotImplementedError
+
+    @dbus_property(
+        property_signature='s',
+        flags=DbusPropertyConstFlag,
+    )
+    def protect_home(self) -> str:
+        raise NotImplementedError
+
+    @dbus_property(
+        property_signature='s',
+        flags=DbusPropertyConstFlag,
+    )
+    def protect_system(self) -> str:
+        raise NotImplementedError
+
+    @dbus_property(
+        property_signature='b',
+        flags=DbusPropertyConstFlag,
+    )
+    def same_process_group(self) -> bool:
+        raise NotImplementedError
+
+    @dbus_property(
+        property_signature='s',
+        flags=DbusPropertyConstFlag,
+    )
+    def utmp_identifier(self) -> str:
+        raise NotImplementedError
+
+    @dbus_property(
+        property_signature='s',
+        flags=DbusPropertyConstFlag,
+    )
+    def utmp_mode(self) -> str:
+        raise NotImplementedError
+
+    @dbus_property(
+        property_signature='(bs)',
+        flags=DbusPropertyConstFlag,
+    )
+    def s_e_linux_context(self) -> Tuple[bool, str]:
+        raise NotImplementedError
+
+    @dbus_property(
+        property_signature='(bs)',
+        flags=DbusPropertyConstFlag,
+    )
+    def app_armor_profile(self) -> Tuple[bool, str]:
+        raise NotImplementedError
+
+    @dbus_property(
+        property_signature='(bs)',
+        flags=DbusPropertyConstFlag,
+    )
+    def smack_process_label(self) -> Tuple[bool, str]:
+        raise NotImplementedError
+
+    @dbus_property(
+        property_signature='b',
+        flags=DbusPropertyConstFlag,
+    )
+    def ignore_s_i_g_p_i_p_e(self) -> bool:
+        raise NotImplementedError
+
+    @dbus_property(
+        property_signature='b',
+        flags=DbusPropertyConstFlag,
+    )
+    def no_new_privileges(self) -> bool:
+        raise NotImplementedError
+
+    @dbus_property(
+        property_signature='(bas)',
+        flags=DbusPropertyConstFlag,
+    )
+    def system_call_filter(self) -> Tuple[bool, List[str]]:
+        raise NotImplementedError
+
+    @dbus_property(
+        property_signature='as',
+        flags=DbusPropertyConstFlag,
+    )
+    def system_call_architectures(self) -> List[str]:
+        raise NotImplementedError
+
+    @dbus_property(
+        property_signature='i',
+        flags=DbusPropertyConstFlag,
+    )
+    def system_call_error_number(self) -> int:
+        raise NotImplementedError
+
+    @dbus_property(
+        property_signature='(bas)',
+        flags=DbusPropertyConstFlag,
+    )
+    def system_call_log(self) -> Tuple[bool, List[str]]:
+        raise NotImplementedError
+
+    @dbus_property(
+        property_signature='s',
+        flags=DbusPropertyConstFlag,
+    )
+    def personality(self) -> str:
+        raise NotImplementedError
+
+    @dbus_property(
+        property_signature='b',
+        flags=DbusPropertyConstFlag,
+    )
+    def lock_personality(self) -> bool:
+        raise NotImplementedError
+
+    @dbus_property(
+        property_signature='(bas)',
+        flags=DbusPropertyConstFlag,
+    )
+    def restrict_address_families(self) -> Tuple[bool, List[str]]:
+        raise NotImplementedError
+
+    @dbus_property(
+        property_signature='s',
+        flags=DbusPropertyConstFlag,
+    )
+    def runtime_directory_preserve(self) -> str:
+        raise NotImplementedError
+
+    @dbus_property(
+        property_signature='u',
+        flags=DbusPropertyConstFlag,
+    )
+    def runtime_directory_mode(self) -> int:
+        raise NotImplementedError
+
+    @dbus_property(
+        property_signature='as',
+        flags=DbusPropertyConstFlag,
+    )
+    def runtime_directory(self) -> List[str]:
+        raise NotImplementedError
+
+    @dbus_property(
+        property_signature='u',
+        flags=DbusPropertyConstFlag,
+    )
+    def state_directory_mode(self) -> int:
+        raise NotImplementedError
+
+    @dbus_property(
+        property_signature='as',
+        flags=DbusPropertyConstFlag,
+    )
+    def state_directory(self) -> List[str]:
+        raise NotImplementedError
+
+    @dbus_property(
+        property_signature='u',
+        flags=DbusPropertyConstFlag,
+    )
+    def cache_directory_mode(self) -> int:
+        raise NotImplementedError
+
+    @dbus_property(
+        property_signature='as',
+        flags=DbusPropertyConstFlag,
+    )
+    def cache_directory(self) -> List[str]:
+        raise NotImplementedError
+
+    @dbus_property(
+        property_signature='u',
+        flags=DbusPropertyConstFlag,
+    )
+    def logs_directory_mode(self) -> int:
+        raise NotImplementedError
+
+    @dbus_property(
+        property_signature='as',
+        flags=DbusPropertyConstFlag,
+    )
+    def logs_directory(self) -> List[str]:
+        raise NotImplementedError
+
+    @dbus_property(
+        property_signature='u',
+        flags=DbusPropertyConstFlag,
+    )
+    def configuration_directory_mode(self) -> int:
+        raise NotImplementedError
+
+    @dbus_property(
+        property_signature='as',
+        flags=DbusPropertyConstFlag,
+    )
+    def configuration_directory(self) -> List[str]:
+        raise NotImplementedError
+
+    @dbus_property(
+        property_signature='t',
+        flags=DbusPropertyConstFlag,
+    )
+    def timeout_clean_u_sec(self) -> int:
+        raise NotImplementedError
+
+    @dbus_property(
+        property_signature='b',
+        flags=DbusPropertyConstFlag,
+    )
+    def memory_deny_write_execute(self) -> bool:
+        raise NotImplementedError
+
+    @dbus_property(
+        property_signature='b',
+        flags=DbusPropertyConstFlag,
+    )
+    def restrict_realtime(self) -> bool:
+        raise NotImplementedError
+
+    @dbus_property(
+        property_signature='b',
+        flags=DbusPropertyConstFlag,
+    )
+    def restrict_s_u_i_d_s_g_i_d(self) -> bool:
+        raise NotImplementedError
+
+    @dbus_property(
+        property_signature='t',
+        flags=DbusPropertyConstFlag,
+    )
+    def restrict_namespaces(self) -> int:
+        raise NotImplementedError
+
+    @dbus_property(
+        property_signature='a(ssbt)',
+        flags=DbusPropertyConstFlag,
+    )
+    def bind_paths(self) -> List[Tuple[str, str, bool, int]]:
+        raise NotImplementedError
+
+    @dbus_property(
+        property_signature='a(ssbt)',
+        flags=DbusPropertyConstFlag,
+    )
+    def bind_read_only_paths(self) -> List[Tuple[str, str, bool, int]]:
+        raise NotImplementedError
+
+    @dbus_property(
+        property_signature='a(ss)',
+        flags=DbusPropertyConstFlag,
+    )
+    def temporary_file_system(self) -> List[Tuple[str, str]]:
+        raise NotImplementedError
+
+    @dbus_property(
+        property_signature='b',
+        flags=DbusPropertyConstFlag,
+    )
+    def mount_a_p_i_v_f_s(self) -> bool:
+        raise NotImplementedError
+
+    @dbus_property(
+        property_signature='s',
+        flags=DbusPropertyConstFlag,
+    )
+    def keyring_mode(self) -> str:
+        raise NotImplementedError
+
+    @dbus_property(
+        property_signature='s',
+        flags=DbusPropertyConstFlag,
+    )
+    def protect_proc(self) -> str:
+        raise NotImplementedError
+
+    @dbus_property(
+        property_signature='s',
+        flags=DbusPropertyConstFlag,
+    )
+    def proc_subset(self) -> str:
+        raise NotImplementedError
+
+    @dbus_property(
+        property_signature='b',
+        flags=DbusPropertyConstFlag,
+    )
+    def protect_hostname(self) -> bool:
+        raise NotImplementedError
+
+    @dbus_property(
+        property_signature='s',
+        flags=DbusPropertyConstFlag,
+    )
+    def network_namespace_path(self) -> str:
+        raise NotImplementedError
+
+    @dbus_property(
+        property_signature='s',
+        flags=DbusPropertyConstFlag,
+    )
+    def kill_mode(self) -> str:
+        raise NotImplementedError
+
+    @dbus_property(
+        property_signature='i',
+        flags=DbusPropertyConstFlag,
+    )
+    def kill_signal(self) -> int:
+        raise NotImplementedError
+
+    @dbus_property(
+        property_signature='i',
+        flags=DbusPropertyConstFlag,
+    )
+    def restart_kill_signal(self) -> int:
+        raise NotImplementedError
+
+    @dbus_property(
+        property_signature='i',
+        flags=DbusPropertyConstFlag,
+    )
+    def final_kill_signal(self) -> int:
+        raise NotImplementedError
+
+    @dbus_property(
+        property_signature='b',
+        flags=DbusPropertyConstFlag,
+    )
+    def send_s_i_g_k_i_l_l(self) -> bool:
+        raise NotImplementedError
+
+    @dbus_property(
+        property_signature='b',
+        flags=DbusPropertyConstFlag,
+    )
+    def send_s_i_g_h_u_p(self) -> bool:
+        raise NotImplementedError
+
+    @dbus_property(
+        property_signature='i',
+        flags=DbusPropertyConstFlag,
+    )
+    def watchdog_signal(self) -> int:
+        raise NotImplementedError
+
+
 class SystemdUnitInterface(
     DbusInterfaceCommon,
     interface_name='org.freedesktop.systemd1.Unit',
