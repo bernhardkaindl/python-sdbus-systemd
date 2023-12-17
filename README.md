@@ -18,6 +18,8 @@ See [python-sdbus requirements](https://github.com/igo95862/python-sdbus#require
 
 # [Documentation](https://python-sdbus-systemd.readthedocs.io/en/latest/)
 
-This is the sub-project of [python-sdbus](https://github.com/igo95862/python-sdbus).
+This is a sub-project of [python-sdbus](https://github.com/igo95862/python-sdbus).
 
 See the [python-sdbus documentation](https://python-sdbus.readthedocs.io/en/latest/).
+
+Please refer to it for all further information like dependencies and installation.
