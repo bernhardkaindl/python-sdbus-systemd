@@ -5,7 +5,7 @@ from .objects import Systemd, SystemdService, SystemdUnit
 __all__ = [
     "SystemdInterface",
     "SystemdServiceInterface",
-    "SystemdService"
+    "SystemdService",
     "SystemdUnitInterface",
     "SystemdUnit",
     "Systemd",
