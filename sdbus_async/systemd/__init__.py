@@ -5,7 +5,7 @@ from .objects import Systemd, SystemdService, SystemdUnit
 __all__ = [
     "SystemdInterfaceAsync",
     "SystemdServiceInterfaceAsync",
-    "SystemdService"
+    "SystemdService",
     "SystemdUnitInterfaceAsync",
     "SystemdUnit",
     "Systemd",
